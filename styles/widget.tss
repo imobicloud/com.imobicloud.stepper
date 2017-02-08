@@ -1,0 +1,15 @@
+/*
+".stepper": {
+    width: 114, height: 56, right: 0, 
+    minimum: 0, maximum: 1000,
+	Button: { width: 56, height: '100%' },
+    // ButtonDisabled: { opacity: 0.3 },
+	// ButtonEnabled: { opacity: 1 },
+	ButtonDecrement: { left: 0, title: '-', color: '#082e3d' },
+	ButtonIncrement: { right: 0, title: '+', color: '#082e3d' },
+	Value: { color: '#082e3d', font: { fontSize: 18, fontFamily: 'Lato-Italic' } }
+	}
+*/
+
+".button-disabled": { touchEnabled: false }
+".button-enabled": { touchEnabled: true }

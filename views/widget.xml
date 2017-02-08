@@ -1,0 +1,7 @@
+<Alloy>
+	<View id="container" class="container">
+		<Label id="value" class="value"/>
+		<Button id="buttonDecrement" onClick="buttonDecrementClick"/>
+		<Button id="buttonIncrement" onClick="buttonIncrementClick"/>
+	</View>
+</Alloy>
