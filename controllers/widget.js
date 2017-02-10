@@ -32,13 +32,13 @@ function setValue(value) {
 exports.setValue = setValue;
 
 function validateData(value) {
-    if (args.minimum && value < args.minimum) { return false; }
-    if (args.maximum && value > args.maximum) { return false; }
+    if (args.minimum != null && value < args.minimum) { return false; }
+    if (args.maximum != null && value > args.maximum) { return false; }
     return true;
 }
 
 function validateUI() {
-	if (args.minimum) {
+	if (args.minimum != null) {
 	    var decrementStyle;
 	    if (args.value - 1 >= args.minimum) {
 	        decrementStyle = _.extend($.createStyle({ classes: 'button-enabled' }), args.ButtonEnabled);
@@ -48,9 +48,9 @@ function validateUI() {
 	    $.buttonDecrement.applyProperties(decrementStyle);
 	}
 
-	if (args.maximum) {
+	if (args.maximum != null) {
 	    var incrementStyle;
-	    if (args.value + 1 >= args.maximum) {
+	    if (args.value + 1 <= args.maximum) {
 	        incrementStyle = _.extend($.createStyle({ classes: 'button-enabled' }), args.ButtonEnabled);
 	    } else {
 	        incrementStyle = _.extend($.createStyle({ classes: 'button-disabled' }), args.ButtonDisabled);
