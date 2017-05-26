@@ -14,7 +14,7 @@ function init() {
 
     args.minimum && (args.minimum = parseInt(args.minimum, 10));
     args.maximum && (args.maximum = parseInt(args.maximum, 10));
-    setValue(args.value || 0);
+    setValue(args.value || args.minimum || 0);
 }
 
 exports.getValue = function() {
@@ -25,11 +25,29 @@ function setValue(value) {
     value = parseInt(value, 10);
     if (validateData(value)) {
         args.value = value;
-        $.value.text = value;
+        $.value.value = value;
         validateUI();
     }
 }
 exports.setValue = setValue;
+
+exports.blur = function() {
+	$.value.blur();
+};
+
+function valueChange(e) {
+	var value = this.value;
+	if (isNaN(value)) {
+		this.value = args.value;
+	} else {
+		value = parseInt(value, 10);
+		if (!validateData(value)) {
+			this.value = args.value;
+		} else {
+			this.value = value;
+		}
+	}
+}
 
 function validateData(value) {
     if (args.minimum != null && value < args.minimum) { return false; }
@@ -61,8 +79,10 @@ function validateUI() {
 
 function buttonDecrementClick(e) {
     setValue(args.value - 1);
+    $.trigger('change', { value : args.value });
 }
 
 function buttonIncrementClick(e) {
     setValue(args.value + 1);
+    $.trigger('change', { value : args.value });
 }
