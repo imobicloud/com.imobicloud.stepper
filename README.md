@@ -12,8 +12,13 @@ tss
 	// ButtonEnabled: { opacity: 1 },
 	ButtonDecrement: { left: 0, title: '-', color: '#082e3d' },
 	ButtonIncrement: { right: 0, title: '+', color: '#082e3d' },
-	Value: { color: '#082e3d', font: { fontSize: 18, fontFamily: 'Lato-Italic' } }
+	Value: { width: 46, height: '100%', 
+		backgroundColor: 'transparent',
+		color: '#082e3d', font: { fontSize: 18, fontFamily: 'Lato-Italic' }, textAlign: 'center',
+		keyboardType: Titanium.UI.KEYBOARD_TYPE_NUMBER_PAD,
+		returnKeyType: Titanium.UI.RETURNKEY_DONE
 	}
+}
 
 xml
 
@@ -29,3 +34,5 @@ js
 	$.price.getValue(); // ==> 2
 
 Changes log:
+ - 5/26/2017
+ 	+ allow to change value by keyboard

@@ -45,6 +45,7 @@ function valueChange(e) {
 			this.value = args.value;
 		} else {
 			this.value = value;
+			args.value = value;
 		}
 	}
 }
